@@ -77,8 +77,10 @@ $r =  doPost("https://website.com","user_donation_amt=%2410.00&company_min_match
 
 if (strpos($r, 'The credit card was declined. Please check the information that you entered')) {
         echo '<span class="label label-danger">#Reprovada ❌ This transaction has been declined '.$lista.' #nic0la 7esla<br></span>';
-}else{
-			//echo $r; 
+}else if(strpos($r, 'There was a problem processing your request.')) {
+			echo '<span class="label label-danger">#Reprovada ❌ There was a problem processing your request '.$lista.' #nic0la 7esla<br></span>';
+			
+		}else{
 			echo '<span class="label label-success">#Aprovada ✅ Another message'.$lista.' #nic0la 7esla</span> <br>';
 		}
 
